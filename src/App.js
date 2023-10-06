@@ -1,57 +1,94 @@
-/** @format */
+import React, { useState } from 'react'
+import ToggleProfile from '../src/modals/ToggleProfile'
+import ThemeComponent from './components/ThemeComponent'
+import ThemeContext from './modals/ThemeContext'
 
-import React, { useState } from 'react';
-import FormComponent from './components/FormComponent';
-import ListUser from './components/ListUser';
+const App = () => {
+	const [theme, setTheme] = useState(true)
+	console.log(theme)
+	const onChangeTheme = () => {
+		setTheme(!theme)
+	}
+  return (
+	<ThemeContext.Provider value={{theme, onChangeTheme }} >
+		<ToggleProfile />
+		<body>
+			<ThemeComponent >
+				 
+			</ThemeComponent>
 
-function App() {
-	const [users, setUsers] = useState([]);
-
-	const handleAddNewTask = (val) => {
-		const data = {
-			content: val,
-			createdAt: Date.now(),
-			updatedAt: Date.now(),
-			createdBy: 'Me',
-			isCompleted: false,
-		};
-
-		setUsers([...users, data]);
-	};
-
-	const handleUpdateTask = (val, index) => {
-		const items = users;
-
-		items[index].isCompleted = val;
-
-		setUsers([...items]);
-	};
-  const handleRemoveUser = (index) =>{
-    const items = users;
-    items.splice(index,1);
-    setUsers([...items]);
-  }
-
-	return (
-		<div>
-			<div className='container'>
-				<div className='row'>
-					<div className='col'>
-						<FormComponent onAddUser={(vals) => handleAddNewTask(vals)} />
-						<ListUser
-							users={users}
-							onChangeState={(val, index) => handleUpdateTask(val, index)}
-              				handleRemoveUser= {handleRemoveUser}
-						/>
-            
-					</div>
-				</div>
-			</div>
-		</div>
-	);
+		</body>
+	</ThemeContext.Provider>
+  )
 }
 
-export default App;
+export default App
+
+
+
+
+
+
+
+
+
+
+
+
+// /** @format */
+
+// import React, { useState } from 'react';
+// import FormComponent from './components/FormComponent';
+// import ListUser from './components/ListUser';
+
+// function App() {
+// 	const [users, setUsers] = useState([]);
+
+// 	const handleAddNewTask = (val) => {
+// 		const data = {
+// 			content: val,
+// 			createdAt: Date.now(),
+// 			updatedAt: Date.now(),
+// 			createdBy: 'Me',
+// 			isCompleted: false,
+// 		};
+
+// 		setUsers([...users, data]);
+// 	};
+
+// 	const handleUpdateTask = (val, index) => {
+// 		const items = users;
+
+// 		items[index].isCompleted = val;
+
+// 		setUsers([...items]);
+// 	};
+//   const handleRemoveUser = (index) =>{
+//     const items = users;
+//     items.splice(index,1);
+//     setUsers([...items]);
+//   }
+
+// 	return (
+// 		<div>
+// 			<div className='container'>
+// 				<div className='row'>
+// 					<div className='col'>
+// 						<FormComponent onAddUser={(vals) => handleAddNewTask(vals)} />
+// 						<ListUser
+// 							users={users}
+// 							onChangeState={(val, index) => handleUpdateTask(val, index)}
+//               				handleRemoveUser= {handleRemoveUser}
+// 						/>
+            
+// 					</div>
+// 				</div>
+// 			</div>
+// 		</div>
+// 	);
+// }
+
+// export default App;
 
 
 // import { Input, Button, Form, Select, Card, List } from "antd";

@@ -1,61 +1,97 @@
-import React, { useEffect, useState } from "react";
-import TextComponent from "../components/TextComponent";
-import { add0ToNumber } from "../utils/add0ToNumber";
-import { Button, Card, List, Space } from "antd";
+// import React, { useState } from 'react'
 
-function ListUser() {
-  const [count, setCount] = useState(0);
-  const [color, setColor] = useState("#676767");
+// function ListUser() {
+// const [profile, setProfile] = useState([])
+// const [isVisible, isVisibleModalProfile]
 
-  useEffect(() => {
-    switch(true) {
-        case  count < 0:
-            setColor('yellow');
-        break;
-        case count > 0 && count < 10:
-            setColor('#676767');
-        break;
-        case count > 10 && count < 15:
-            setColor('blue');
-        break;
-        case  count > 15:
-            setColor('red');
-        default: setColor('#676767');
-        break;
-    }
-  },[count]);
+//   return (
+//     <div>ListUser</div>
+//   )
+// }
 
-  // count < 0 => yellow
-  // 0 <count < 10 => #676767
-  // 10< count <15 => blue
-  // count > 15 => red
+// export default ListUser
 
-  return (
-    <div className="container">
-      <div className="col-8 offset-2">
-        <Card>
-          <div className="text-center">
-            <h1
-              style={{
-                fontSize: 50,
-                color: color,
-              }}
-            >
-              {count}
-            </h1>
 
-            <Space>
-              <Button onClick={() => setCount(count - 1)}>- 1</Button>
-              <Button onClick={() => setCount(count + 1)}>+ 1</Button>
-            </Space>
-          </div>
-        </Card>
-      </div>
-    </div>
-  );
-}
+// gọi function ngoài useeffect: mỗi lần gọi lại render tất cả cái function, trước khi render giao diện
+// gọi function trong useeffect: chạy render ra UI rồi mới chạy useeffect
+// - không có đối số (thuộc tính) sẽ clg 2 lần
 
-export default ListUser;
+/* sử dụng useeffect để bắt lấy sự thay đổi khi một cái gì đó thay đổi */
+
+// import React, { useEffect, useState } from "react";
+// import TextComponent from "../components/TextComponent";
+// import { add0ToNumber } from "../utils/add0ToNumber";
+// import { Button, Card, List, Space } from "antd";
+
+// function ListUser() {
+//   const [count, setCount] = useState(0);
+//   const [color, setColor] = useState("#676767");
+
+//   useEffect(() => {
+//     switch(true) {
+//         case  count < 0:
+//             setColor('yellow');
+//         break;
+//         case count > 0 && count < 10:
+//             setColor('#676767');
+//         break;
+//         case count > 10 && count < 15:
+//             setColor('blue');
+//         break;
+//         case  count > 15:
+//             setColor('red');
+//         default: setColor('#676767');
+//         break;
+//     }
+//   },[count]);
+
+//   // count < 0 => yellow
+//   // 0 <count < 10 => #676767
+//   // 10< count <15 => blue
+//   // count > 15 => red
+
+//   return (
+//     <div className="container">
+//       <div className="col-8 offset-2">
+//         <Card>
+//           <div className="text-center">
+//             <h1
+//               style={{
+//                 fontSize: 50,
+//                 color: color,
+//               }}
+//             >
+//               {count}
+//             </h1>
+
+//             <Space>
+//               <Button onClick={() => setCount(count - 1)}>- 1</Button>
+//               <Button onClick={() => setCount(count + 1)}>+ 1</Button>
+//             </Space>
+//           </div>
+//         </Card>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default ListUser;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // import React, { useEffect, useState } from "react";
 // // import TextComponent from "../components/TextComponent";
@@ -102,6 +138,11 @@ export default ListUser;
 
 //     export default ListUser;
 
+
+
+
+
+
 //   const [dateTime, setDateTime] = useState("");
 
 //   useEffect(() => {
@@ -126,6 +167,10 @@ export default ListUser;
 //       </div>
 //     </div>
 //   );
+
+
+
+
 
 // /** @format */
 
