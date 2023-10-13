@@ -1,39 +1,65 @@
-import React, { useState } from 'react'
-import ToggleProfile from '../src/modals/ToggleProfile'
-import ThemeComponent from './components/ThemeComponent'
-import ThemeContext from './modals/ThemeContext'
+import React from "react";
+// import Profile from "./screens/Profile";
+import HomeScreen from "./screens/HomeScreen";
+import { Layout } from "antd";
+// import HeaderComponent from './screens/HeaderComponent'
+// import SiderComponent from './screens/SiderComponent'
+import { Content } from "antd/es/layout/layout";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+// import PostScreen from "./screens/posts/PostScreen";
+import PostDetails from "./screens/posts/PostDetails";
 
-const App = () => {
-	const [theme, setTheme] = useState(true)
-	console.log(theme)
-	const onChangeTheme = () => {
-		setTheme(!theme)
-	}
+function App() {
   return (
-	<ThemeContext.Provider value={{theme, onChangeTheme }} >
-		<ToggleProfile />
-		<body>
-			<ThemeComponent >
-				 
-			</ThemeComponent>
-
-		</body>
-	</ThemeContext.Provider>
-  )
+    <BrowserRouter>
+      <div style={{ height: "100vh" }}>
+        <Layout>
+          {/* <HeaderComponent/> */}
+          <Layout>
+            {/* <SiderComponent/> */}
+            <Content className="container mt-4">
+              <Routes>
+                <Route path="/" element={<HomeScreen />} />
+                <Route path="/post-details">
+                  <Route path=":id" element={<PostDetails />} />
+                </Route>
+                
+              </Routes>
+            </Content>
+          </Layout>
+        </Layout>
+      </div>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
 
+// import React, { useState } from 'react'
+// import ToggleProfile from '../src/modals/ToggleProfile'
+// import ThemeComponent from './components/ThemeComponent'
+// import ThemeContext from './modals/ThemeContext'
 
+// const App = () => {
+// 	const [theme, setTheme] = useState(true)
+// 	console.log(theme)
+// 	const onChangeTheme = () => {
+// 		setTheme(!theme)
+// 	}
+//   return (
+// 	<ThemeContext.Provider value={{theme, onChangeTheme }} >
+// 		<ToggleProfile />
+// 		<body>
+// 			<ThemeComponent >
 
+// 			</ThemeComponent>
 
+// 		</body>
+// 	</ThemeContext.Provider>
+//   )
+// }
 
-
-
-
-
-
-
+// export default App
 
 // /** @format */
 
@@ -80,7 +106,7 @@ export default App
 // 							onChangeState={(val, index) => handleUpdateTask(val, index)}
 //               				handleRemoveUser= {handleRemoveUser}
 // 						/>
-            
+
 // 					</div>
 // 				</div>
 // 			</div>
@@ -89,7 +115,6 @@ export default App
 // }
 
 // export default App;
-
 
 // import { Input, Button, Form, Select, Card, List } from "antd";
 // import React, { useState } from "react";
